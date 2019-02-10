@@ -1,0 +1,28 @@
+body {
+  font-family: 'Abel', sans-serif;
+}
+
+a {
+}
+
+.container {
+  margin-top: 5%;
+}
+
+.header {
+  text-align: center;
+  margin: 0 0 2%;
+}
+
+.lane-text.main {
+  font-size: 10px;
+}
+
+.lane-text.mini {
+  font-size: 5px;
+}
+
+.mini-label {
+  font-size: 5px;
+  fill: #fff;
+}
