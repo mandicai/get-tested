@@ -3,10 +3,12 @@ body {
 }
 
 a {
+  color: #ff7e00;
 }
 
 .container {
   margin-top: 5%;
+  width: 75%;
 }
 
 .header {
