@@ -2,6 +2,10 @@ body {
   font-family: 'Abel', sans-serif;
 }
 
+h1 {
+  text-align: center;
+}
+
 a {
   color: #ff7e00;
 }
@@ -12,7 +16,6 @@ a {
 }
 
 .header {
-  text-align: center;
   margin: 0 0 2%;
 }
 
