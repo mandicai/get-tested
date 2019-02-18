@@ -1,3 +1,3 @@
-# rabies-MA
+# get-tested
 
-I was nipped by a cat & got curious about the state of rabies in Massachusetts (for my own wellbeing). Data is from the [Mass.gov website](https://www.mass.gov/lists/rabies-surveillance-data). Visualizations made in D3, scrolliness created with the help of [Scrollama](https://github.com/russellgoldenberg/scrollama) & [this article](https://pudding.cool/process/scrollytelling-sticky/) about using `position:sticky`. 
+`git clone` the project, `cd` into the folder, and run `http-server -c-1 -p 8000` to run the project and see it at `localhost:8000` (or use a local server of your choice)
