@@ -1,0 +1,219 @@
+[
+  {
+    "lane": 0,
+    "id": "Chlamydia",
+    "start": [1, "days"],
+    "end": [5, "days"],
+    "source": "STDcheck"
+  }, {
+    "lane": 0,
+    "id": "Chlamydia",
+    "start": [2, "weeks"],
+    "end": [4, "weeks"],
+    "source": "The STD Project"
+  }, {
+    "lane": 0,
+    "id": "Chlamydia",
+    "start": [5, "days"],
+    "end": [2, "weeks"],
+    "source": "North Dakota Department of Health"
+  }, {
+    "lane": 0,
+    "id": "Chlamydia",
+    "start": [2, "weeks"],
+    "end": [2, "weeks"],
+    "source": "BC Centre for Disease Control"
+  }, {
+    "lane": 1,
+    "id": "Gonorrhea",
+    "start": [2, "days"],
+    "end": [6, "days"],
+    "source": "STDcheck"
+  }, {
+    "lane": 1,
+    "id": "Gonorrhea",
+    "start": [1, "weeks"],
+    "end": [3, "weeks"],
+    "source": "The STD Project"
+  }, {
+    "lane": 1,
+    "id": "Gonorrhea",
+    "start": [5, "days"],
+    "end": [2, "weeks"],
+    "source": "North Dakota Department of Health"
+  }, {
+    "lane": 1,
+    "id": "Gonorrhea",
+    "start": [1, "weeks"],
+    "end": [1, "weeks"],
+    "source": "BC Centre for Disease Control"
+  }, {
+    "lane": 2,
+    "id": "Syphilis",
+    "start": [3, "weeks"],
+    "end": [6, "weeks"],
+    "source": "STDcheck"
+  }, {
+    "lane": 2,
+    "id": "Syphilis",
+    "start": [4, "weeks"],
+    "end": [12, "weeks"],
+    "source": "The STD Project"
+  }, {
+    "lane": 2,
+    "id": "Syphilis",
+    "start": [1, "weeks"],
+    "end": [2, "weeks"],
+    "source": "North Dakota Department of Health"
+  }, {
+    "lane": 2,
+    "id": "Syphilis",
+    "start": [3, "weeks"],
+    "end": [4, "weeks"],
+    "source": "BC Centre for Disease Control"
+  }, {
+    "lane": 3,
+    "id": "HIV",
+    "start": [1, "months"],
+    "end": [3, "months"],
+    "source": "STDcheck"
+  }, {
+    "lane": 3,
+    "id": "HIV",
+    "start": [4, "weeks"],
+    "end": [12, "weeks"],
+    "source": "The STD Project"
+  }, {
+    "lane": 3,
+    "id": "HIV",
+    "start": [23, "days"],
+    "end": [90, "days"],
+    "source": "North Dakota Department of Health"
+  }, {
+    "lane": 3,
+    "id": "HIV",
+    "start": [6, "weeks"],
+    "end": [6, "weeks"],
+    "source": "BC Centre for Disease Control"
+  }, {
+    "lane": 4,
+    "id": "Hepatitis A",
+    "start": [2, "weeks"],
+    "end": [7, "weeks"],
+    "source": "STDcheck"
+  }, {
+    "lane": 4,
+    "id": "Hepatitis A",
+    "start": [4, "weeks"],
+    "end": [6, "weeks"],
+    "source": "The STD Project"
+  }, {
+    "lane": 4,
+    "id": "Hepatitis A",
+    "start": [4, "weeks"],
+    "end": [4, "weeks"],
+    "source": "BC Centre for Disease Control"
+  }, {
+    "lane": 5,
+    "id": "Hepatitis B",
+    "start": [3, "weeks"],
+    "end": [6, "weeks"],
+    "source": "STDcheck"
+  }, {
+    "lane": 5,
+    "id": "Hepatitis B",
+    "start": [4, "weeks"],
+    "end": [10, "weeks"],
+    "source": "The STD Project"
+  }, {
+    "lane": 5,
+    "id": "Hepatitis B",
+    "start": [1, "weeks"],
+    "end": [9, "weeks"],
+    "source": "North Dakota Department of Health"
+  }, {
+    "lane": 5,
+    "id": "Hepatitis B",
+    "start": [4, "weeks"],
+    "end": [4, "weeks"],
+    "source": "BC Centre for Disease Control"
+  }, {
+    "lane": 6,
+    "id": "Hepatitis C",
+    "start": [8, "weeks"],
+    "end": [9, "weeks"],
+    "source": "STDcheck"
+  }, {
+    "lane": 6,
+    "id": "Hepatitis C",
+    "start": [6, "weeks"],
+    "end": [20, "weeks"],
+    "source": "The STD Project"
+  }, {
+    "lane": 6,
+    "id": "Hepatitis C",
+    "start": [4, "weeks"],
+    "end": [10, "weeks"],
+    "source": "North Dakota Department of Health"
+  }, {
+    "lane": 6,
+    "id": "Hepatitis C",
+    "start": [2, "weeks"],
+    "end": [2, "weeks"],
+    "source": "BC Centre for Disease Control"
+  }, {
+    "lane": 7,
+    "id": "Oral Herpes",
+    "start": [4, "weeks"],
+    "end": [6, "weeks"],
+    "source": "STDcheck"
+  }, {
+    "lane": 7,
+    "id": "Oral Herpes",
+    "start": [6, "weeks"],
+    "end": [16, "weeks"],
+    "source": "The STD Project"
+  }, {
+    "lane": 7,
+    "id": "Oral Herpes",
+    "start": [3, "months"],
+    "end": [3, "months"],
+    "source": "BC Centre for Disease Control"
+  }, {
+    "lane": 8,
+    "id": "Genital Herpes",
+    "start": [4, "weeks"],
+    "end": [6, "weeks"],
+    "source": "STDcheck"
+  }, {
+    "lane": 8,
+    "id": "Genital Herpes",
+    "start": [6, "weeks"],
+    "end": [16, "weeks"],
+    "source": "The STD Project"
+  }, {
+    "lane": 8,
+    "id": "Genital Herpes",
+    "start": [3, "months"],
+    "end": [3, "months"],
+    "source": "BC Centre for Disease Control"
+  }, {
+    "lane": 9,
+    "id": "Trichomoniasis",
+    "start": [2, "weeks"],
+    "end": [3, "weeks"],
+    "source": "The STD Project"
+  }, {
+    "lane": 9,
+    "id": "Trichomoniasis",
+    "start": [4, "days"],
+    "end": [28, "days"],
+    "source": "BC Centre for Disease Control"
+  }, {
+    "lane": 10,
+    "id": "HPV",
+    "start": [4, "months"],
+    "end": [6, "months"],
+    "source": "BC Centre for Disease Control"
+  }
+]
