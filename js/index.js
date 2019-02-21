@@ -9,20 +9,27 @@ let margin = {
     bottom: 30,
     left: 40
   },
-  width = 550 - margin.right - margin.left,
-  height = 350 - margin.top - margin.bottom
-  lanes = ['Chlamydia', 'Gonorrhea', 'Syphilis', 'HIV', 'Hepatitis A', 'Hepatitis B', 'Hepatitis C', 'Oral Herpes', ' Genital Herpes', 'Trichomoniasis', 'HPV'] // names of stds,
+  width = 550,
+  height = 350,
+  lanes = ['Chlamydia', 'Gonorrhea', 'Syphilis', 'HIV', 'Hepatitis A', 'Hepatitis B', 'Hepatitis C', 'Oral Herpes', ' Genital Herpes', 'Trichomoniasis', 'HPV'], // names of stds,
   miniHeight = 75, // height of mini brushable timeline
-  mainHeight = height - miniHeight - 50 // height of bigger timeline,
-  miniRectHeight = 5 // height of each window in the mini timeline
+  mainHeight = height - miniHeight - 50, // height of bigger timeline,
+  mainRectHeight = 12, // height of each window in the main timeline
+  mainRectPadding = 1, // padding for main rectangles
+  miniRectHeight = 5, // height of each window in the mini timeline
+  miniRectPadding = 1, // padding for mini rectangles
+  betweenCharts = 15, // space between charts
+  labelSpace = 5, // space between STD labels and charts
+  dottedLineX = 30, // x position of dotted line
+  dottedLineLength = 15 // extra length of dotted line
 
 // scales
 let x = d3.scaleTime()
   .domain([timeStart, timeEnd])
-  .range([margin.left, width])
+  .range([margin.left, width - margin.right])
 
 let x1 = d3.scaleLinear()
-  .range([0, width])
+  .range([margin.left, width - margin.right])
 
 let y1 = d3.scaleLinear()
   .domain([0, lanes.length])
@@ -56,7 +63,7 @@ function setupCharts(stdWindows) {
     .attr('font-size', '7px')
 
   timelineLabel.append('text')
-    .attr('dx', 414)
+    .attr('dx', width - 67)
     .text(numberWeeks + ' weeks')
     .attr('font-size', '7px')
 
@@ -67,7 +74,7 @@ function setupCharts(stdWindows) {
     .attr('class', 'main')
 
   let mini = svg.append('g')
-    .attr('transform', 'translate(' + margin.left + ',' + (mainHeight + margin.top + 15) + ')')
+    .attr('transform', 'translate(' + margin.left + ',' + (mainHeight + margin.top + betweenCharts) + ')')
     .attr('width', width)
     .attr('height', miniHeight)
     .attr('class', 'mini')
@@ -79,7 +86,7 @@ function setupCharts(stdWindows) {
     .attr('y1', function (d, i) {
       return y1(i)
     })
-    .attr('x2', width)
+    .attr('x2', width - margin.left)
     .attr('y2', function (d, i) {
       return y1(i)
     })
@@ -91,7 +98,7 @@ function setupCharts(stdWindows) {
     .text(function (d) {
       return d
     })
-    .attr('x', margin.right - 5)
+    .attr('x', margin.right - labelSpace)
     .attr('y', function (d, i) {
       return y1(i)
     })
@@ -105,7 +112,7 @@ function setupCharts(stdWindows) {
     .attr('y1', function (d, i) {
       return y2(i)
     })
-    .attr('x2', width)
+    .attr('x2', width - margin.left)
     .attr('y2', function (d, i) {
       return y2(i)
     })
@@ -117,7 +124,7 @@ function setupCharts(stdWindows) {
     .text(function (d) {
       return d
     })
-    .attr('x', margin.right - 5)
+    .attr('x', margin.right - labelSpace)
     .attr('y', function (d, i) {
       return y2(i)
     })
@@ -125,8 +132,30 @@ function setupCharts(stdWindows) {
     .attr('text-anchor', 'end')
     .attr('class', 'lane-text mini')
 
-  let itemRects = main.append('g')
+  let mainRects = main.append('g')
     .attr('clip-path', 'url(#clip)')
+
+  //main item rects
+  mainRects.selectAll('.main-items')
+    .data(stdWindows)
+    .enter().append('rect')
+    .attr('class', function (d) {
+      return 'main-item' + d.lane
+    })
+    .attr('x', function (d) {
+      return x(d.start)
+    })
+    .attr('y', function (d) {
+      return y1(d.lane) - (mainRectHeight + mainRectPadding)
+    })
+    .attr('width', function (d) {
+      return x(d.end) - x(d.start)
+    })
+    .attr('height', mainRectHeight)
+    .attr('fill', function (d) {
+      return sourceColors(d.id)
+    })
+    .attr('opacity', 0.6)
 
   //mini item rects
   mini.append('g').selectAll('.mini-items')
@@ -139,7 +168,7 @@ function setupCharts(stdWindows) {
       return x(d.start)
     })
     .attr('y', function (d) {
-      return y2(d.lane) - (miniRectHeight + 1)
+      return y2(d.lane) - (miniRectHeight + miniRectPadding)
     })
     .attr('width', function (d) {
       return x(d.end) - x(d.start)
@@ -169,15 +198,61 @@ function setupCharts(stdWindows) {
   //   .attr('dy', '2.0ex')
 
   let timelineLines = svg.append('g')
-    .attr('transform', 'translate(' + margin.right + ',' + margin.top + ')')
+    .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
   timelineLines.append('line')
-    .attr('x1', margin.left)
-    .attr('x2', margin.left)
-    .attr('y1', -margin.top + 12)
-    .attr('y2', mainHeight + miniHeight + 15)
+    .attr('x1', dottedLineX)
+    .attr('x2', dottedLineX)
+    .attr('y1', -dottedLineLength)
+    .attr('y2', mainHeight + miniHeight + dottedLineLength)
     .attr('stroke', '#ff7e00')
     .attr('stroke-dasharray', '3,3')
+}
+
+function brushChart() {
+  function brushed() {
+    if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
+    var s = d3.event.selection || x2.range();
+    x.domain(s.map(x2.invert, x2));
+    focus.select(".area").attr("d", area);
+    focus.select(".axis--x").call(xAxis);
+    svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
+      .scale(width / (s[1] - s[0]))
+      .translate(-s[0], 0));
+  }
+
+  function zoomed() {
+    if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return; // ignore zoom-by-brush
+    var t = d3.event.transform;
+    x.domain(t.rescaleX(x2).domain());
+    focus.select(".area").attr("d", area);
+    focus.select(".axis--x").call(xAxis);
+    context.select(".brush").call(brush.move, x.range().map(t.invertX, t));
+  }
+
+  function display() {
+    var selection = d3.event.selection
+    // x is the time scale
+    // x1 is the length scale
+    console.log(selection) // range that you are selecting
+    console.log(selection.map(x.invert, x)) // range inverted into time
+    console.log(x1.domain(selection.map(x.invert, x))) // set the domain of x1 ..
+
+    // focus.selectAll(".dot")
+    //       .attr("cx", function(d) { return x(d.date); })
+    //       .attr("cy", function(d) { return y(d.price); });
+    // focus.select(".axis--x").call(xAxis);
+  }
+
+  let brush = d3.brushX()
+  .extent([[dottedLineX, -10], [width - margin.right - 10, miniHeight]])
+  .on('brush', display)
+
+  d3.select('.mini')
+    .append('g')
+    .attr('class', 'brush')
+    .call(brush)
+    .call(brush.move, [dottedLineX, width - margin.right - 10])
 }
 
 d3.json('data/std_windows.json').then(data => {
@@ -187,5 +262,6 @@ d3.json('data/std_windows.json').then(data => {
   })
 
   setupCharts(data)
+  brushChart()
 })
 
