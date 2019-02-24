@@ -35,10 +35,10 @@ let sourceColors = d3.scaleOrdinal()
   .domain(lanes)
   .range(['rgb(91,88,143)', 'rgb(152,154,202)', 'rgb(35,34,66)', 'rgb(198,103,243)', 'rgb(46,13,147)', 'rgb(251,9,152)', 'rgb(121,35,103)', 'rgb(241,115,177)', 'rgb(45,109,249)', 'rgb(236,130,46)', 'rgb(93,24,0)'])
 
-function setupCharts(stdWindows, container, showSkinContact) {
+function setupCharts(stdWindows, container) {
   let svg = d3.select('#' + container).append('svg')
     .attr('viewBox', '0 0 ' + width + ' ' + height)
-    .attr('class', 'window-timeline')
+    .attr('class', container)
 
   let timelineLabel = svg.append('g')
     .attr('transform', 'translate(' + margin.left + ',' + timelineLabelPadding + ')')
@@ -69,6 +69,7 @@ function setupCharts(stdWindows, container, showSkinContact) {
     .attr('height', mainHeight)
     .attr('class', 'main')
 
+  // lane lines
   main.append('g').selectAll('.lane-lines')
     .data(lanes)
     .enter().append('line')
@@ -82,6 +83,7 @@ function setupCharts(stdWindows, container, showSkinContact) {
     })
     .attr('stroke', 'lightgray')
 
+  // lane labels
   main.append('g').selectAll('.lane-text')
     .data(stdWindows)
     .enter().append('text')
@@ -93,7 +95,18 @@ function setupCharts(stdWindows, container, showSkinContact) {
       return y1(i)
     })
     .attr('text-anchor', 'end')
-    .attr('class', 'lane-text main')
+    .attr('class', function (d) {
+      return 'lane-text ' + d.id
+    })
+    .attr('opacity', function (d) {
+      if (container === 'window-timeline') { return sourceColors(d.id) }
+      if (container === 'contact-timeline') {
+        if (d.skinContact) { return 1 }
+        else { return 0.2 }
+      }
+      if (container === 'symptoms-timeline') { return 1 }
+      if (container === 'treatment-timeline') { return 1 }
+    })
 
   //main item windows
   let mainRects = main.append('g').selectAll('.main-item')
@@ -112,14 +125,20 @@ function setupCharts(stdWindows, container, showSkinContact) {
     })
     .attr('r', circleRadius)
     .attr('fill', function (d) {
-      if (showSkinContact) {
-        if (d.skinContact) {
-          return '#ff5027'
-        } else {
-          return '#ccc'
-        }
-      } else {
-        return sourceColors(d.id)
+      if (container === 'window-timeline') { return sourceColors(d.id) }
+      if (container === 'contact-timeline') {
+        if (d.skinContact) { return '#ff5027' }
+        else { return '#ccc' }
+      }
+      if (container === 'symptoms-timeline') {
+        if (d.lessThanFiftySymptoms === 'both') { return '#830d9b' }
+        if (d.lessThanFiftySymptoms === 'women') { return '#fc518e' }
+        if (d.lessThanFiftySymptoms === 'men') { return '#0493bf' }
+        if (d.lessThanFiftySymptoms === 'neither') { return '#00c1bc' }
+      }
+      if (container === 'treatment-timeline') {
+        if (d.treatmentPlan === 'curable') { return '#02c623'}
+        if (d.treatmentPlan === 'treatable') { return '#f96a00'}
       }
     })
 
@@ -132,14 +151,20 @@ function setupCharts(stdWindows, container, showSkinContact) {
     })
     .attr('r', circleRadius)
     .attr('fill', function (d) {
-      if (showSkinContact) {
-        if (d.skinContact) {
-          return '#ff5027'
-        } else {
-          return '#ccc'
-        }
-      } else {
-        return sourceColors(d.id)
+      if (container === 'window-timeline') { return sourceColors(d.id) }
+      if (container === 'contact-timeline') {
+        if (d.skinContact) { return '#ff5027' }
+        else { return '#ccc' }
+      }
+      if (container === 'symptoms-timeline') {
+        if (d.lessThanFiftySymptoms === 'both') { return '#830d9b' }
+        if (d.lessThanFiftySymptoms === 'women') { return '#fc518e' }
+        if (d.lessThanFiftySymptoms === 'men') { return '#0493bf' }
+        if (d.lessThanFiftySymptoms === 'neither') { return '#00c1bc' }
+      }
+      if (container === 'treatment-timeline') {
+        if (d.treatmentPlan === 'curable') { return '#02c623'}
+        if (d.treatmentPlan === 'treatable') { return '#f96a00'}
       }
     })
 
@@ -157,36 +182,23 @@ function setupCharts(stdWindows, container, showSkinContact) {
       return y1(d.lane) - mainRectHeight
     })
     .attr('stroke', function (d) {
-      if (showSkinContact) {
-        if (d.skinContact) {
-          return '#ff5027'
-        } else {
-          return '#ccc'
-        }
-      } else {
-        return sourceColors(d.id)
+      if (container === 'window-timeline') { return sourceColors(d.id) }
+      if (container === 'contact-timeline') {
+        if (d.skinContact) { return '#ff5027' }
+        else { return '#ccc' }
+      }
+      if (container === 'symptoms-timeline') {
+        if (d.lessThanFiftySymptoms === 'both') { return '#830d9b' }
+        if (d.lessThanFiftySymptoms === 'women') { return '#fc518e' }
+        if (d.lessThanFiftySymptoms === 'men') { return '#0493bf' }
+        if (d.lessThanFiftySymptoms === 'neither') { return '#00c1bc' }
+      }
+      if (container === 'treatment-timeline') {
+        if (d.treatmentPlan === 'curable') { return '#02c623'}
+        if (d.treatmentPlan === 'treatable') { return '#f96a00'}
       }
     })
     .attr('stroke-width', '3px')
-
-  // main labels
-  // main.append('g').selectAll('.main-label')
-  //   .data(stdWindows)
-  //   .enter().append('text')
-  //   .attr('class', function (d) {
-  //     return 'main-label ' + d.lane
-  //   })
-  //   .text(function (d) {
-  //     console.log(d.start, d.end)
-  //     return moment(d.start).week() + ' ' + moment(d.end).week()
-  //   })
-  //   .attr('x', function (d) {
-  //     return x(d.start)
-  //   })
-  //   .attr('y', function (d) {
-  //     return y1(d.lane)
-  //   })
-  //   .attr('font-size', '8px')
 
   let timelineLines = svg.append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
@@ -198,6 +210,47 @@ function setupCharts(stdWindows, container, showSkinContact) {
     .attr('y2', mainHeight - dottedLineLength)
     .attr('stroke', '#ff7e00')
     .attr('stroke-dasharray', '3,3')
+}
+
+let contactColorScale = [
+  { text: 'Spread skin to skin', color: '#ff5027' },
+  { text: 'Spread other ways', color: '#ccc' }
+]
+let symptomsColorScale = [
+  { text: '< 50% of people show symptoms', color: '#830d9b' },
+  { text: '< 50% of women show symptoms', color: '#fc518e' },
+  { text: '< 50% of men show symptoms', color: '#0493bf' },
+  { text: 'Will show symptoms', color: '#00c1bc' },
+]
+let treatmentColorScale = [
+  { text: 'Curable', color: '#02c623' },
+  { text: 'Treatable', color: '#f96a00' }
+]
+
+function createScale(container, scale) {
+  let svgScale = d3.select('#' + container).append('svg')
+    .attr('viewBox', '-5 0 ' + width + ' ' + 25)
+    .attr('class', container)
+
+  let legend = svgScale.selectAll('.legend')
+    .data(scale)
+    .enter().append('g')
+    .attr('class', 'legend')
+    .attr('transform', function (d, i) {
+      if (container === 'contact-scale') { return 'translate(' + (i * 100) + ',' + 10 + ')' }
+      if (container === 'symptoms-scale') { return 'translate(' + (i * 150) + ',' + 10 + ')' }
+      if (container === 'treatment-scale') { return 'translate(' + (i * 50) + ',' + 10 + ')' }
+    })
+
+  legend.append('circle')
+    .attr('r', 5)
+    .style('fill', d => d.color)
+
+  legend.append('text')
+    .attr('x', 10)
+    .attr('y', 2.5)
+    .style('font-size', '8px')
+    .text(d => d.text)
 }
 
 d3.json('data/std_windows_averaged.json').then(data => {
@@ -223,7 +276,31 @@ d3.json('data/std_windows_averaged.json').then(data => {
     d.lane = i
   })
 
-  setupCharts(data, 'window-timeline', false)
-  setupCharts(data, 'contact-timeline', true)
+  setupCharts(data, 'window-timeline')
+  setupCharts(data, 'contact-timeline')
+  setupCharts(data, 'symptoms-timeline')
+  setupCharts(data, 'treatment-timeline')
+  createScale('contact-scale', contactColorScale)
+  createScale('symptoms-scale', symptomsColorScale)
+  createScale('treatment-scale', treatmentColorScale)
 })
+
+// main labels
+// main.append('g').selectAll('.main-label')
+//   .data(stdWindows)
+//   .enter().append('text')
+//   .attr('class', function (d) {
+//     return 'main-label ' + d.lane
+//   })
+//   .text(function (d) {
+//     console.log(d.start, d.end)
+//     return moment(d.start).week() + ' ' + moment(d.end).week()
+//   })
+//   .attr('x', function (d) {
+//     return x(d.start)
+//   })
+//   .attr('y', function (d) {
+//     return y1(d.lane)
+//   })
+//   .attr('font-size', '8px')
 

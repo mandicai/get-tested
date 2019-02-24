@@ -1,9 +1,6 @@
 body {
   font-family: 'Abel', sans-serif;
-}
-
-svg {
-  margin: 2%;
+  margin: 5% 0;
 }
 
 h1 {
@@ -20,7 +17,6 @@ a {
 }
 
 .container {
-  margin-top: 5%;
   width: 60%;
 }
 
@@ -28,17 +24,12 @@ a {
   margin: 0 0 5%;
 }
 
-.lane-text.main {
+.timeline {
+  margin: 3%;
+}
+
+.lane-text {
   font-size: 10px;
-}
-
-.lane-text.mini {
-  font-size: 5px;
-}
-
-.mini-label {
-  font-size: 5px;
-  fill: #fff;
 }
 
 .tick {
@@ -47,4 +38,9 @@ a {
 
 .tick line {
   opacity: 0.1;
+}
+
+.method-caption {
+  font-size: 10px;
+  color: #9e9e9e;
 }
