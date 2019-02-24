@@ -2,8 +2,14 @@ body {
   font-family: 'Abel', sans-serif;
 }
 
+svg {
+  margin: 2%;
+}
+
 h1 {
   text-align: center;
+  font-size: 60px;
+  font-weight: 700;
 }
 
 a {
@@ -12,11 +18,11 @@ a {
 
 .container {
   margin-top: 5%;
-  width: 75%;
+  width: 60%;
 }
 
 .header {
-  margin: 0 0 2%;
+  margin: 0 0 5%;
 }
 
 .lane-text.main {
@@ -30,4 +36,12 @@ a {
 .mini-label {
   font-size: 5px;
   fill: #fff;
+}
+
+.tick {
+  font-family: 'Abel', sans-serif;
+}
+
+.tick line {
+  opacity: 0.1;
 }
