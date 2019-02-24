@@ -3,63 +3,67 @@
     "lane": 0,
     "id": "Chlamydia",
     "start": [9, "days"],
-    "end": [16, "days"]
+    "end": [16, "days"],
+    "skinContact": false
   }, {
     "lane": 1,
     "id": "Gonorrhea",
     "start": [6, "days"],
-    "end": [12, "days"]
+    "end": [12, "days"],
+    "skinContact": false
   }, {
     "lane": 2,
     "id": "Syphilis",
     "start": [20, "days"],
-    "end": [42, "days"]
+    "end": [42, "days"],
+    "skinContact": true
   }, {
     "lane": 3,
     "id": "HIV",
     "start": [31, "days"],
-    "end": [75, "days"]
+    "end": [75, "days"],
+    "skinContact": false
   }, {
     "lane": 4,
     "id": "Hepatitis A",
     "start": [24, "days"],
     "end": [40, "days"],
-    "source": "STDcheck"
+    "skinContact": false
   }, {
     "lane": 5,
     "id": "Hepatitis B",
     "start": [21, "days"],
     "end": [51, "days"],
-    "source": "STDcheck"
+    "skinContact": false
   }, {
     "lane": 6,
     "id": "Hepatitis C",
     "start": [35, "days"],
     "end": [72, "days"],
-    "source": "STDcheck"
+    "skinContact": false
   }, {
     "lane": 7,
     "id": "Oral Herpes",
     "start": [52, "days"],
     "end": [80, "days"],
-    "source": "STDcheck"
+    "skinContact": true
   }, {
     "lane": 8,
     "id": "Genital Herpes",
     "start": [52, "days"],
     "end": [80, "days"],
-    "source": "STDcheck"
+    "skinContact": true
   }, {
     "lane": 9,
     "id": "Trichomoniasis",
     "start": [9, "days"],
     "end": [25, "days"],
-    "source": "The STD Project"
+    "skinContact": true
   }, {
     "lane": 10,
     "id": "HPV",
     "start": [4, "months"],
     "end": [6, "months"],
-    "source": "BC Centre for Disease Control"
+    "skinContact": true
   }
 ]

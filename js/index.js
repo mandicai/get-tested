@@ -35,7 +35,7 @@ let sourceColors = d3.scaleOrdinal()
   .domain(lanes)
   .range(['rgb(91,88,143)', 'rgb(152,154,202)', 'rgb(35,34,66)', 'rgb(198,103,243)', 'rgb(46,13,147)', 'rgb(251,9,152)', 'rgb(121,35,103)', 'rgb(241,115,177)', 'rgb(45,109,249)', 'rgb(236,130,46)', 'rgb(93,24,0)'])
 
-function setupCharts(stdWindows, container) {
+function setupCharts(stdWindows, container, showSkinContact) {
   let svg = d3.select('#' + container).append('svg')
     .attr('viewBox', '0 0 ' + width + ' ' + height)
     .attr('class', 'window-timeline')
@@ -112,7 +112,15 @@ function setupCharts(stdWindows, container) {
     })
     .attr('r', circleRadius)
     .attr('fill', function (d) {
-      return sourceColors(d.id)
+      if (showSkinContact) {
+        if (d.skinContact) {
+          return '#ff5027'
+        } else {
+          return '#ccc'
+        }
+      } else {
+        return sourceColors(d.id)
+      }
     })
 
   mainRects.append('circle')
@@ -124,7 +132,15 @@ function setupCharts(stdWindows, container) {
     })
     .attr('r', circleRadius)
     .attr('fill', function (d) {
-      return sourceColors(d.id)
+      if (showSkinContact) {
+        if (d.skinContact) {
+          return '#ff5027'
+        } else {
+          return '#ccc'
+        }
+      } else {
+        return sourceColors(d.id)
+      }
     })
 
   mainRects.append('line')
@@ -141,7 +157,15 @@ function setupCharts(stdWindows, container) {
       return y1(d.lane) - mainRectHeight
     })
     .attr('stroke', function (d) {
-      return sourceColors(d.id)
+      if (showSkinContact) {
+        if (d.skinContact) {
+          return '#ff5027'
+        } else {
+          return '#ccc'
+        }
+      } else {
+        return sourceColors(d.id)
+      }
     })
     .attr('stroke-width', '3px')
 
@@ -199,7 +223,7 @@ d3.json('data/std_windows_averaged.json').then(data => {
     d.lane = i
   })
 
-  setupCharts(data, 'window-timeline')
-  setupCharts(data, 'contact-timeline')
+  setupCharts(data, 'window-timeline', false)
+  setupCharts(data, 'contact-timeline', true)
 })
 
