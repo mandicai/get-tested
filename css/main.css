@@ -16,6 +16,11 @@ a {
   color: #ff7e00;
 }
 
+a:hover {
+  color: #ccc;
+  transition: 0.2s all ease;
+}
+
 .container {
   width: 60%;
 }
