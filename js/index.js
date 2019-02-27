@@ -214,13 +214,13 @@ function setupCharts(stdWindows, container) {
 
 let contactColorScale = [
   { text: 'Spread skin to skin', color: '#ff5027' },
-  { text: 'Spread other ways', color: '#ccc' }
+  { text: 'Spread other ways, i.e. from oral, vaginal, or anal sex', color: '#ccc' }
 ]
 let symptomsColorScale = [
-  { text: '< 50% of people show symptoms', color: '#830d9b' },
+  { text: '< 50% of adults show symptoms', color: '#830d9b' },
   { text: '< 50% of women show symptoms', color: '#fc518e' },
   { text: '< 50% of men show symptoms', color: '#0493bf' },
-  { text: 'Will show symptoms', color: '#00c1bc' },
+  { text: 'Most should show symptoms', color: '#00c1bc' },
 ]
 let treatmentColorScale = [
   { text: 'Curable', color: '#02c623' },
@@ -238,7 +238,7 @@ function createScale(container, scale) {
     .attr('class', 'legend')
     .attr('transform', function (d, i) {
       if (container === 'contact-scale') { return 'translate(' + (i * 100) + ',' + 10 + ')' }
-      if (container === 'symptoms-scale') { return 'translate(' + (i * 150) + ',' + 10 + ')' }
+      if (container === 'symptoms-scale') { return 'translate(' + (i * 145) + ',' + 10 + ')' }
       if (container === 'treatment-scale') { return 'translate(' + (i * 50) + ',' + 10 + ')' }
     })
 

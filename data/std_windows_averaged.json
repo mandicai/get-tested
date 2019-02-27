@@ -29,7 +29,7 @@
     "start": [31, "days"],
     "end": [75, "days"],
     "skinContact": false,
-    "lessThanFiftySymptoms": "both",
+    "lessThanFiftySymptoms": "neither",
     "treatmentPlan": "treatable"
   }, {
     "lane": 4,
@@ -46,7 +46,7 @@
     "end": [51, "days"],
     "skinContact": false,
     "lessThanFiftySymptoms": "neither",
-    "treatmentPlan": "curable"
+    "treatmentPlan": "treatable"
   }, {
     "lane": 6,
     "id": "Hepatitis C",
