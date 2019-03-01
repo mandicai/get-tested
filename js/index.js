@@ -1,7 +1,7 @@
 let numberWeeks = 28
 
-let timeStart = moment('01-01').toDate(),
-  timeEnd = moment('01-01').add(numberWeeks, 'weeks').toDate()
+let timeStart = moment('01-01', 'MM-DD'),
+  timeEnd = moment('01-01', 'MM-DD').add(numberWeeks, 'weeks')
 
 let margin = {
     top: 30,
@@ -256,8 +256,8 @@ function createScale(container, scale) {
 d3.json('data/std_windows_averaged.json').then(data => {
   // convert start and end to moment dates
   data.forEach(d => {
-    d.start = moment('01-01').add(d.start[0], d.start[1]).toDate()
-    d.end = moment('01-01').add(d.end[0], d.end[1]).toDate()
+    d.start = moment('01-01', 'MM-DD').add(d.start[0], d.start[1])
+    d.end = moment('01-01', 'MM-DD').add(d.end[0], d.end[1])
   })
 
   // sort data based on start date of window period
