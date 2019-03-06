@@ -7,7 +7,7 @@ let margin = {
     top: 30,
     right: 30,
     bottom: 30,
-    left: 40
+    left: 45
   },
   width = 550,
   height = 300,
@@ -18,7 +18,7 @@ let margin = {
   dottedLineX = 30, // x position of dotted line
   dottedLineLength = 20, // extra length of dotted line
   timelineLabelPadding = 6, // padding top of timeline labels
-  timelineLabelSpacing = 70, // spacing between timeline labels
+  timelineLabelSpacing = 77, // spacing between timeline labels
   circleRadius = 4 // radius of circles
 
 // scales
@@ -238,7 +238,7 @@ function createScale(container, scale) {
     .attr('class', 'legend')
     .attr('transform', function (d, i) {
       if (container === 'contact-scale') { return 'translate(' + (i * 100) + ',' + 10 + ')' }
-      if (container === 'symptoms-scale') { return 'translate(' + (i * 145) + ',' + 10 + ')' }
+      if (container === 'symptoms-scale') { return 'translate(' + (i * 140) + ',' + 10 + ')' }
       if (container === 'treatment-scale') { return 'translate(' + (i * 50) + ',' + 10 + ')' }
     })
 
@@ -284,22 +284,3 @@ d3.json('data/std_windows_averaged.json').then(data => {
   createScale('symptoms-scale', symptomsColorScale)
   createScale('treatment-scale', treatmentColorScale)
 })
-
-// main labels
-// main.append('g').selectAll('.main-label')
-//   .data(stdWindows)
-//   .enter().append('text')
-//   .attr('class', function (d) {
-//     return 'main-label ' + d.lane
-//   })
-//   .text(function (d) {
-//     console.log(d.start, d.end)
-//     return moment(d.start).week() + ' ' + moment(d.end).week()
-//   })
-//   .attr('x', function (d) {
-//     return x(d.start)
-//   })
-//   .attr('y', function (d) {
-//     return y1(d.lane)
-//   })
-//   .attr('font-size', '8px')
