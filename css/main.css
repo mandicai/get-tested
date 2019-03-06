@@ -28,7 +28,7 @@ a:hover {
   width: 60%;
 }
 
-.header {
+.section {
   margin: 0 0 5%;
 }
 
@@ -63,7 +63,7 @@ a:hover {
   }
 
   .title h1 {
-    font-size: 85px;
+    font-size: 125px;
   }
 
   h3 {
@@ -72,10 +72,14 @@ a:hover {
 
   p {
     font-size: 40px;
-    margin: 0 0 10%;
+    margin: 0 0 5%;
   }
 
   a {
     font-size: 40px;
+  }
+
+  .section {
+    margin: 0 0 10%;
   }
 }

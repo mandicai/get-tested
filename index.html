@@ -15,11 +15,11 @@
 <body>
   <div class="container">
     <div class="row">
-        <div class="header">
+        <div class="header section">
           <div class="title">
             <h1>Test I Ever Had</h1>
             <div class="header-decoration"></div>
-            <p>By Mandi Cai</p>
+            <p><b>By Mandi Cai</b></p>
           </div>
           <p>Good sex education teaches us that every sexually active individual should get tested.
             The Centers for Disease Control and Prevention recommends that <b>"all adults and adolescents from ages 13 to 64 should be tested at least once for HIV."</b> Sexually
@@ -36,68 +36,89 @@
             are generally asymptomatic? Which STDs are treatable vs curable?
           </p>
         </div>
-        <h3>Window periods of common STDs</h3>
-        <div class="header-decoration"></div>
-        <p>After having unprotected intercourse, some will rush to get tested and expect the results to be accurate. But in reality, there is a
-          period of time after possible contraction during which the bacteria or antibodies in response to the virus are not detected by tests.
-        </p>
-        <div class="timeline" id="window-timeline"></div>
-        <p class="method-caption">*Window periods were taken from The STD Project, STDcheck, North Dakota Department of Health,
-          and the BC Centre for Disease Control. The starts of the window periods were averaged together, and the ends of the window periods were averaged together.
-          If a window period only specified one date (i.e. 'One should get tested after 4 weeks'), the same date was treated as the
-          start and end dates.
-        </p>
-        <h3>STDs spread by skin to skin contact</h3>
-        <div class="header-decoration"></div>
-        <p>Some STDs are not just spread through oral, vaginal, or anal sex - they can also be contracted via skin to skin
-          contact.
-        </p>
-        <div class="timeline" id="contact-timeline">
-          <div class="scale" id="contact-scale"></div>
+        <div class="section">
+          <h3>Window periods of common STDs</h3>
+          <div class="header-decoration"></div>
+          <p>After having unprotected intercourse, some will rush to get tested and expect the results to be accurate. But in
+            reality, there is a
+            period of time after possible contraction during which the bacteria or antibodies in response to the virus are not
+            detected by tests.
+          </p>
+          <div class="timeline" id="window-timeline"></div>
+          <p class="method-caption">*Window periods were taken from The STD Project, STDcheck, North Dakota Department of Health,
+            and the BC Centre for Disease Control. The starts of the window periods were averaged together, and the ends of the
+            window periods were averaged together.
+            If a window period only specified one date (i.e. 'One should get tested after 4 weeks'), the same date was treated as
+            the
+            start and end dates.
+          </p>
         </div>
-        <p class="method-caption">*Skin to skin contact happens when the infected part of one's skin comes into direct contact with
-          an open lesion or mucous membrane on an uninfected individual.
-        </p>
-        <h3>Asymptomatic STDs</h3>
-        <div class="header-decoration"></div>
-        <p>A example of an asymptomatic STD is chlamydia, which is known as the "silent infection" - <a href="https://www.cdc.gov/std/chlamydia/stdfact-chlamydia-detailed.htm">according to the CDC</a>,
-          studies reported that <b>"only about 10% of men and 5-30% of women with laboratory-confirmed chlamydial infection develop symptoms."</b> Most STDs can be
-          asymptomatic for months or years, and can cause serious damage to one's internal body if left untreated. The best thing to do is to get tested regularly if you're sexually active.
-        </p>
-        <div class="timeline" id="symptoms-timeline">
-          <div class="scale" id="symptoms-scale"></div>
+        <div class="section">
+          <h3>STDs spread by skin to skin contact</h3>
+          <div class="header-decoration"></div>
+          <p>Some STDs are not just spread through oral, vaginal, or anal sex - they can also be contracted via skin to skin
+            contact.
+          </p>
+          <div class="timeline" id="contact-timeline">
+            <div class="scale" id="contact-scale"></div>
+          </div>
+          <p class="method-caption">*Skin to skin contact happens when the infected part of one's skin comes into direct contact
+            with
+            an open lesion or mucous membrane on an uninfected individual.
+          </p>
         </div>
-        <p class="method-caption">*Symptoms for each STD are provided by the CDC's detailed STD fact sheets.</p>
-        <h3>Treatable vs curable STDs</h3>
-        <div class="header-decoration"></div>
-        <p>The good news is that the common STDs listed here are either treatable or curable if detected early enough. Bacterial STDs are
-          typically curable via antibiotics, while viral STDs and the spread of the virus can be managed via medication.
-        </p>
-        <div class="timeline" id="treatment-timeline">
-          <div class="scale" id="treatment-scale"></div>
+        <div class="section">
+          <h3>Asymptomatic STDs</h3>
+          <div class="header-decoration"></div>
+          <p>A example of an asymptomatic STD is chlamydia, which is known as the "silent infection" - <a
+              href="https://www.cdc.gov/std/chlamydia/stdfact-chlamydia-detailed.htm">according to the CDC</a>,
+            studies reported that <b>"only about 10% of men and 5-30% of women with laboratory-confirmed chlamydial infection
+              develop symptoms."</b> Most STDs can be
+            asymptomatic for months or years, and can cause serious damage to one's internal body if left untreated. The best
+            thing to do is to get tested regularly if you're sexually active.
+          </p>
+          <div class="timeline" id="symptoms-timeline">
+            <div class="scale" id="symptoms-scale"></div>
+          </div>
+          <p class="method-caption">*Symptoms for each STD are provided by the CDC's detailed STD fact sheets.</p>
         </div>
-        <h3>Method</h3>
-        <div class="header-decoration"></div>
-        <p>Charts were created using D3. Data was gathered from the sources listed below. Code is on <a href="https://github.com/mandicai/test-i-ever-had">GitHub</a>.</p>
-        <h3>Sources</h3>
-        <div class="header-decoration"></div>
-        <div><a href="https://www.cdc.gov/std/prevention/screeningreccs.htm">CDC: Which STD Tests Should I Get?</a></div>
-        <div><a href="https://www.cdc.gov/std/chlamydia/stdfact-chlamydia-detailed.htm">CDC: Chlamydia - CDC Fact Sheet (Detailed)</a></div>
-        <div><a href="https://www.cdc.gov/std/gonorrhea/stdfact-gonorrhea-detailed.htm">CDC: Gonorrhea - CDC Fact Sheet (Detailed Version)</a></div>
-        <div><a href="https://www.cdc.gov/std/trichomonas/stdfact-trichomoniasis.htm">CDC: Trichomoniasis</a></div>
-        <div><a href="https://www.cdc.gov/std/syphilis/stdfact-syphilis-detailed.htm">CDC: Syphilis - CDC Fact Sheet (Detailed)</a></div>
-        <div><a href="https://www.cdc.gov/std/tg2015/hepatitis.htm">CDC: Viral Hepatitis</a></div>
-        <div><a href="https://www.cdc.gov/hepatitis/hcv/cfaq.htm#overview">CDC: Hepatitis C Questions and Answers for the Public</a></div>
-        <div><a href="https://www.cdc.gov/std/herpes/stdfact-herpes-detailed.htm">CDC: Genital Herpes - CDC Fact Sheet (Detailed)</a></div>
-        <div><a href="https://www.cdc.gov/std/hiv/stdfact-std-hiv-detailed.htm">CDC: STDs and HIV – CDC Fact Sheet</a></div>
-        <div><a href="https://www.cdc.gov/std/hpv/stdfact-hpv.htm">CDC: Genital HPV Infection - Fact Sheet</a></div>
-        <div><a href="https://www.thestdproject.com/std-testing-windows-when-to-get-tested-stds/">The STD Project</a></div>
-        <div><a href="https://www.stdcheck.com/blog/wp-content/uploads/2015/03/get_tested_final-1.jpg">STDcheck</a></div>
-        <div><a href="http://www.ndhealth.gov/hiv/Docs/CTR/TimePeriodsReference_HIVSTDsHep.pdf">North Dakota Department of Health</a></div>
-        <div><a href="https://smartsexresource.com/sites/default/files/Smartsex_SUPERCHART_2014_v2.pdf">BC Centre for Disease Control</a></div>
-        <div><a href="https://www.webmd.com/sexual-conditions/most-common-stds-men-women#1">WebMD: Most Common STDs for Women and Men</a></div>
-        <div><a href="https://www.verywellhealth.com/sexually-transmitted-infections-spread-by-skin-contact-3133056">Verywell Health: Which Sexually Transmitted Infections Spread by Skin Contact?</a></div>
-        <div><a href="https://www.everydayhealth.com/hs/hiv-health/timeline-hiv-symptoms/">Everyday Health: A Timeline of HIV Symptoms</a></div>
+        <div class="section">
+          <h3>Treatable vs curable STDs</h3>
+          <div class="header-decoration"></div>
+          <p>The good news is that the common STDs listed here are either treatable or curable if detected early enough. Bacterial
+            STDs are
+            typically curable via antibiotics, while viral STDs and the spread of the virus can be managed via medication.
+          </p>
+          <div class="timeline" id="treatment-timeline">
+            <div class="scale" id="treatment-scale"></div>
+          </div>
+        </div>
+        <div class="section">
+          <h3>Method</h3>
+          <div class="header-decoration"></div>
+          <p>Charts were created using D3. Data was gathered from the sources listed below. Code is on <a href="https://github.com/mandicai/test-i-ever-had">GitHub</a>.</p>
+        </div>
+        <div class="section">
+          <h3>Sources</h3>
+          <div class="header-decoration"></div>
+          <div><a href="https://www.cdc.gov/std/prevention/screeningreccs.htm">CDC: Which STD Tests Should I Get?</a></div>
+          <div><a href="https://www.cdc.gov/std/chlamydia/stdfact-chlamydia-detailed.htm">CDC: Chlamydia - CDC Fact Sheet (Detailed)</a></div>
+          <div><a href="https://www.cdc.gov/std/gonorrhea/stdfact-gonorrhea-detailed.htm">CDC: Gonorrhea - CDC Fact Sheet (Detailed Version)</a></div>
+          <div><a href="https://www.cdc.gov/std/trichomonas/stdfact-trichomoniasis.htm">CDC: Trichomoniasis</a></div>
+          <div><a href="https://www.cdc.gov/std/syphilis/stdfact-syphilis-detailed.htm">CDC: Syphilis - CDC Fact Sheet (Detailed)</a></div>
+          <div><a href="https://www.cdc.gov/std/tg2015/hepatitis.htm">CDC: Viral Hepatitis</a></div>
+          <div><a href="https://www.cdc.gov/hepatitis/hcv/cfaq.htm#overview">CDC: Hepatitis C Questions and Answers for the Public</a></div>
+          <div><a href="https://www.cdc.gov/std/herpes/stdfact-herpes-detailed.htm">CDC: Genital Herpes - CDC Fact Sheet (Detailed)</a></div>
+          <div><a href="https://www.cdc.gov/std/hiv/stdfact-std-hiv-detailed.htm">CDC: STDs and HIV – CDC Fact Sheet</a></div>
+          <div><a href="https://www.cdc.gov/std/hpv/stdfact-hpv.htm">CDC: Genital HPV Infection - Fact Sheet</a></div>
+          <div><a href="https://www.thestdproject.com/std-testing-windows-when-to-get-tested-stds/">The STD Project</a></div>
+          <div><a href="https://www.stdcheck.com/blog/wp-content/uploads/2015/03/get_tested_final-1.jpg">STDcheck</a></div>
+          <div><a href="http://www.ndhealth.gov/hiv/Docs/CTR/TimePeriodsReference_HIVSTDsHep.pdf">North Dakota Department of Health</a></div>
+          <div><a href="https://smartsexresource.com/sites/default/files/Smartsex_SUPERCHART_2014_v2.pdf">BC Centre for Disease Control</a></div>
+          <div><a href="https://www.webmd.com/sexual-conditions/most-common-stds-men-women#1">WebMD: Most Common STDs for Women and Men</a></div>
+          <div><a href="https://www.verywellhealth.com/sexually-transmitted-infections-spread-by-skin-contact-3133056">Verywell Health: Which Sexually Transmitted Infections Spread by Skin Contact?</a></div>
+          <div><a href="https://www.everydayhealth.com/hs/hiv-health/timeline-hiv-symptoms/">Everyday Health: A Timeline of HIV Symptoms</a></div>
+        </div>
     </div>
   </div>
 
