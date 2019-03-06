@@ -19,7 +19,10 @@ let margin = {
   dottedLineLength = 20, // extra length of dotted line
   timelineLabelPadding = 6, // padding top of timeline labels
   timelineLabelSpacing = 77, // spacing between timeline labels
-  circleRadius = 4 // radius of circles
+  circleRadius = 4, // radius of circles
+  headerDecorationRadius = 2, // radius of header decoration circle
+  headerDecorationWidth = 300, // width of header decoration
+  headerDecorationHeight = 10 // height of header decoration
 
 // scales
 let x = d3.scaleTime()
@@ -275,6 +278,33 @@ d3.json('data/std_windows_averaged.json').then(data => {
   data.forEach((d,i) => {
     d.lane = i
   })
+
+  // add header decoration
+  let headerSvg = d3.selectAll('.header-decoration')
+    .append('svg')
+    .attr('viewBox', '0 0 ' + headerDecorationWidth + ' ' + headerDecorationHeight)
+
+  let headerGroup = headerSvg.append('g')
+
+  headerGroup.append('circle')
+    .attr('cx', headerDecorationRadius)
+    .attr('cy', headerDecorationHeight / 2)
+    .attr('r', headerDecorationRadius)
+    .attr('fill', 'pink')
+
+  headerGroup.append('circle')
+    .attr('cx', headerDecorationWidth - headerDecorationRadius)
+    .attr('cy', headerDecorationHeight / 2)
+    .attr('r', headerDecorationRadius)
+    .attr('fill', 'pink')
+
+  headerGroup.append('line')
+    .attr('x1', headerDecorationRadius)
+    .attr('y1', headerDecorationHeight / 2)
+    .attr('x2', headerDecorationWidth - headerDecorationRadius)
+    .attr('y2', headerDecorationHeight / 2)
+    .attr('stroke', 'pink')
+    .attr('stroke-width', '1px')
 
   setupCharts(data, 'window-timeline')
   setupCharts(data, 'contact-timeline')
