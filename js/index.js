@@ -245,13 +245,17 @@ function createScale(container, scale) {
       if (container === 'treatment-scale') { return 'translate(' + (i * 50) + ',' + 10 + ')' }
     })
 
+  let legendCircleSize = 5,
+    legendX = 10,
+    legendY = 2.5
+
   legend.append('circle')
-    .attr('r', 5)
+    .attr('r', legendCircleSize)
     .style('fill', d => d.color)
 
   legend.append('text')
-    .attr('x', 10)
-    .attr('y', 2.5)
+    .attr('x', legendX)
+    .attr('y', legendY)
     .style('font-size', '8px')
     .text(d => d.text)
 }
