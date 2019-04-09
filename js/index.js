@@ -118,6 +118,16 @@ function setupCharts(stdWindows, container) {
     .attr('class', d => {
       return 'main-item ' + d.lane
     })
+    .on('mousemove', d => {
+      console.log(d)
+    })
+
+  mainRects.append('g')
+    .attr('transform', d => {
+      return 'translate(' + (x(d.end) + 10) + ',' + y1(d.lane) + ')'
+    })
+    .append('text')
+    .text('hi')
 
   mainRects.append('circle')
     .attr('cx', d => {
