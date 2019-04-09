@@ -77,11 +77,11 @@ function setupCharts(stdWindows, container) {
     .data(lanes)
     .enter().append('line')
     .attr('x1', margin.right)
-    .attr('y1', function (d, i) {
+    .attr('y1', (d, i) => {
       return y1(i)
     })
     .attr('x2', width - margin.left)
-    .attr('y2', function (d, i) {
+    .attr('y2', (d, i) => {
       return y1(i)
     })
     .attr('stroke', 'lightgray')
@@ -90,18 +90,18 @@ function setupCharts(stdWindows, container) {
   main.append('g').selectAll('.lane-text')
     .data(stdWindows)
     .enter().append('text')
-    .text(function (d) {
+    .text(d => {
       return d.id
     })
     .attr('x', margin.right - labelSpace)
-    .attr('y', function (d, i) {
+    .attr('y', (d, i) => {
       return y1(i)
     })
     .attr('text-anchor', 'end')
-    .attr('class', function (d) {
+    .attr('class', d => {
       return 'lane-text ' + d.id
     })
-    .attr('opacity', function (d) {
+    .attr('opacity', d => {
       if (container === 'window-timeline') { return sourceColors(d.id) }
       if (container === 'contact-timeline') {
         if (d.skinContact) { return 1 }
@@ -115,19 +115,19 @@ function setupCharts(stdWindows, container) {
   let mainRects = main.append('g').selectAll('.main-item')
     .data(stdWindows)
     .enter().append('g')
-    .attr('class', function (d) {
+    .attr('class', d => {
       return 'main-item ' + d.lane
     })
 
   mainRects.append('circle')
-    .attr('cx', function (d) {
+    .attr('cx', d => {
       return x(d.start)
     })
-    .attr('cy', function (d) {
+    .attr('cy', d => {
       return y1(d.lane) - mainRectHeight
     })
     .attr('r', circleRadius)
-    .attr('fill', function (d) {
+    .attr('fill', d => {
       if (container === 'window-timeline') { return sourceColors(d.id) }
       if (container === 'contact-timeline') {
         if (d.skinContact) { return '#ff5027' }
@@ -146,14 +146,14 @@ function setupCharts(stdWindows, container) {
     })
 
   mainRects.append('circle')
-    .attr('cx', function (d) {
+    .attr('cx', d => {
       return x(d.end)
     })
-    .attr('cy', function (d) {
+    .attr('cy', d => {
       return y1(d.lane) - mainRectHeight
     })
     .attr('r', circleRadius)
-    .attr('fill', function (d) {
+    .attr('fill', d => {
       if (container === 'window-timeline') { return sourceColors(d.id) }
       if (container === 'contact-timeline') {
         if (d.skinContact) { return '#ff5027' }
@@ -172,19 +172,19 @@ function setupCharts(stdWindows, container) {
     })
 
   mainRects.append('line')
-    .attr('x1', function (d) {
+    .attr('x1', d => {
       return x(d.start)
     })
-    .attr('y1', function (d) {
+    .attr('y1', d => {
       return y1(d.lane) - mainRectHeight
     })
-    .attr('x2', function (d) {
+    .attr('x2', d => {
       return x(d.end)
     })
-    .attr('y2', function (d) {
+    .attr('y2', d => {
       return y1(d.lane) - mainRectHeight
     })
-    .attr('stroke', function (d) {
+    .attr('stroke', d => {
       if (container === 'window-timeline') { return sourceColors(d.id) }
       if (container === 'contact-timeline') {
         if (d.skinContact) { return '#ff5027' }
@@ -239,7 +239,7 @@ function createScale(container, scale) {
     .data(scale)
     .enter().append('g')
     .attr('class', 'legend')
-    .attr('transform', function (d, i) {
+    .attr('transform', (d, i) => {
       if (container === 'contact-scale') { return 'translate(' + (i * 100) + ',' + 10 + ')' }
       if (container === 'symptoms-scale') { return 'translate(' + (i * 140) + ',' + 10 + ')' }
       if (container === 'treatment-scale') { return 'translate(' + (i * 50) + ',' + 10 + ')' }
